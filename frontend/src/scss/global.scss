@@ -1,0 +1,71 @@
+@import 'colors';
+@import "breakpoints";
+@import 'mixins.scss';
+@import 'typography.scss';
+
+a {
+    text-decoration: none;
+}
+
+// Container classes
+
+.blue-container {
+    background: $blue;
+    @include displays;
+}
+
+.white-container {
+    background: $white;
+    @include displays;
+}
+
+// Container title class
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+// Title classes
+
+.white-title {
+    color: $white;
+    @include main-title;
+
+    &::before {
+        @include title-before;
+        background-color: $white;
+    }
+}
+
+.blue-title {
+    color: $blue;
+    @include main-title;
+
+    &::before {
+        @include title-before;
+        background-color: $blue;
+    }
+}
+
+// General content classes
+
+.sub-title {
+    font-family: $font-header;
+    font-size: 1.2rem;
+    color: $white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+}
+
+.content {
+    color: $white;
+    display: flex;
+    justify-content: center;
+    font-family: $font-content;
+    font-size: 1.2rem;
+    line-height: 1.43;
+    text-align: center;
+}

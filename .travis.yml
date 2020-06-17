@@ -1,0 +1,22 @@
+language: python
+python: 3.8
+install:
+  - pip install -r backend/requirements.txt
+
+  - nvm install 10.13.0
+  - cd frontend && yarn install && cd -
+script:
+  - cd frontend && yarn lint
+  - cd ..
+  - cd backend
+  - export SECRET_KEY="codeforpoznan"
+  - pytest
+  - black --check .
+
+deploy:                         
+  provider: s3                         
+  access_key_id: "AKIAXEYQRJGB32OLAE3C"
+  secret_access_key: "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"
+  bucket: "cfp-v3-s3-bucket"
+  skip_cleanup: true
+  local_dir: frontend/dist  

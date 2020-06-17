@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+
+  frontend:
+    container_name: cfp_v3_frontend
+    build: frontend
+    ports:
+      - 8080:8080
+    volumes:
+      - ./frontend:/cfp_v3/frontend
+
+
+  backend:
+    container_name: cfp_v3_backend
+    build: backend
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend:/cfp_v3/backend
+    links:
+      - db:db
+    environment:
+      DB_HOST: db
+      DB_NAME: cfp_v3
+      DB_USER: cfp_v3
+      DB_PASSWORD: cfp_v3
+      SECRET_KEY: codeforpoznan
+
+  db:
+    container_name: cfp_v3_db
+    image: postgres:9.5
+    environment:
+      POSTGRES_DB: cfp_v3
+      POSTGRES_USER: cfp_v3
+      POSTGRES_PASSWORD: cfp_v3
