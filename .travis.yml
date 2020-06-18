@@ -1,0 +1,14 @@
+language: python
+python: 3.8
+install:
+  - pip install -r backend/requirements.txt
+
+  - nvm install 10.13.0
+  - cd frontend && yarn install && cd -
+script:
+  - cd frontend && yarn lint
+  - cd ..
+  - cd backend
+  - export SECRET_KEY="codeforpoznan"
+  - pytest
+  - black --check .
