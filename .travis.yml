@@ -12,3 +12,17 @@ script:
   - export SECRET_KEY="codeforpoznan"
   - pytest
   - black --check .
+
+deploy:
+  provider: s3
+  edge: true
+  bucket: "cfp-v3-s3-bucket"
+  region: "us-east-2"
+  skip_cleanup: true
+  secret_access_key:
+    secure: "u72nsjPjiRPKb2sMVSglrLG2y3po4Zm80Y61AqIP6KaIcQoXVKUWASyAkIuhDXJ1+j0V2y9+GKWgy7RA2quPFizRPRxZZbeB+A6tjmutehFZC7ypkg/Oc/lL2PxaDAp/bjkh+QxQ5lh5j8MT9ETtzAX9P6S9izvYpl8ibzQiNfTistIe6ZgZiCO1I7gLBIo3T7Jb7GZtdCpRxhYFIXtUHC5bc/lgWSdSKJoSon5KxvpXo5zN1cDJCB0hzW69RD1IvmdIndhpHfVlob/+oOGTfzfOp91n2Wm9kZJr/Dk7v2BittBq55VFGpJXhhz8XdJKRAMDBkx/jzcq6oO78EWftYk9L3jjaGhwaehO3uNUkoaE74FFKgWq7Lu0ycyBkYSzt2j/uJfihTEyF2nrnFcZ6XfwP6rCNkFtTCK7JcaNsIffjViPkhi3/Cfb1PZWRoI9FYiEGGiYxa64+5RHJM981pNqFGnZVLFzOY51tLb1N3v9yDNPP+v8o04BmLXrAHdk9C49L5+E7nuCz72HZ6jsbQSCSfPN+N5CsqujVh+0z890rzWgWmAGbVxozD/6FnVRbqANvPc1esSQjkJDaGdHk9Ed23ZGmBcJBlxyGAnLL/oOE3RgVsk9n5hRggQiCwhkf7hl5jEyc67z3Di74Z5B9+19hQvuHcWcgy5VHOGqEA4="
+  access_key_id:
+    secure: "Th+YapC78bj6t9zwnZzvwlMwMOTBgWHXvQdjWLhE0Nunqmm3Uhr1kX8tLjzi9zvWojIXbZl+vN0lFr9+sds6ChoeP2N+dt7nybkv+XQLSIB+jWzG2nnhoBSEXoOyEGqN8AM1A0dbKolCwwb0sJTbRfmy9eLpsQQVaGsha8H9PHBYjfyCaKhIdjF2t0/M4/eIM41CeZkZPVLMGn3BRlZgpsgPSpEhE8DuTraCIEufojZscBR3p3doQn1/fbomHfBAwD9oYhlUzMjE/L2oaqE0oXzrpLSNTVcFJzx7uVv33HIobCqBIw2QSFqijEhfo2pJNAsmrfY1lmBLr+rMZEiEgR+f34q8RL5LgwxokLwXU7OuEOU8FwpqPUBdzJUPauIfNKAAlicQQvO8UP1OcruL4BEyKKggSvnQvz+Y8igY/wzCzlDsufEVg2O+fSP3rzYt/PueTFOJ+fs2MkFIgt7Kna5SXAOJX+AyEqI7YHUZDGCYpcu9I3hBophm+hoLYjAnK8WelLeo5gNY7p2qGUIt/ghuBRU4PnQdouem+Bw36TZef0i3nSkdRabvSMkZpW1vxWaVqFTIbFsCeht+jCWM6Sd30G1ABJ6YXW0ljcX3dqfUboHnMKxBeD9BFOa6GomAuRJj/yS7QyvWZMPvyEfFcpqDFfpMuZXYzehxQCH11Yk="
+  local-dir: frontend/dist 
+  on:
+      branch: master
