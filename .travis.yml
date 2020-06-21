@@ -12,6 +12,7 @@ script:
   - export SECRET_KEY="codeforpoznan"
   # - pytest
   - black --check .
+  - cd ..
   - ls -la
 deploy:
   provider: s3
