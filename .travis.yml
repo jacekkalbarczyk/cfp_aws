@@ -12,9 +12,10 @@ script:
   - export SECRET_KEY="codeforpoznan"
   # - pytest
   - black --check .
-  - cd /frontend/dist
+  - cd ..
+  - pwd
   - ls -la
-  
+
 deploy:
   provider: s3
   edge: true
