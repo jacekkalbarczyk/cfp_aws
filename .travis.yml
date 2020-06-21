@@ -6,13 +6,12 @@ install:
   - nvm install 10.13.0
   - cd frontend && yarn install && cd -
 script:
-  - cd frontend && yarn lint
+  - cd frontend && yarn lint && yarn build
   - cd ..
   - cd backend
   - export SECRET_KEY="codeforpoznan"
   - pytest
   - black --check .
-  - cd frontend && npm run build
 
 deploy:
   provider: s3
