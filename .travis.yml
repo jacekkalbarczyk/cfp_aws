@@ -1,19 +1,30 @@
 language: python
 python: 3.8
-install:
-- pip install -r backend/requirements.txt
-- pip install awscli
-- nvm install 10.13.0
-- cd frontend && yarn install && cd -
-script:
-- cd frontend && yarn lint && yarn build
-- cd ..
-- cd backend
-- export SECRET_KEY="codeforpoznan"
-- black --check .
-- cd ..
-- aws s3 sync frontend/dist s3://cfp-v3-s3-bucket
+
+
 env:
   global:
-  - secure: cjCtdItb6hY/a9Lx4GdpjqMHjFWgKN5AVucKDNTTy/zIVy8cvX158W4zQbm94n9FhMsXgcUxA2h+pFEjfjFOH4PSmUXvEcIEpl+c3+Cb+y89830rg52I5hXz+Vk2MMU7LdFZ3FsgpGfLOIk7oaRrv00UxWsk1gnlq2HZLJjqQlIN9IdyIDPGmMarrU5PFLIII3Gz3Ld21/GCWPotp709Ers85DFLHHZlfogKIrpi5qsCbtXx99y50nYTEwyGfYN51ehPnFghP4HfA6c6hCokFFvA+3TpRxGUFd19oXQutDkp4YBtKRBZTII/gwCg1ZVnR8j1UjZwBE3xosaWJV7sgjnVTm2r3TNL1BUO/qCMvjbLOJZLtu1D4U321+gF5V+3qR8zeyjbo7wxIPIRWH9DWyNu8Cwem0rKPTt1nnPl5ieHVOAKf/jrT3jqNx6uI3ZceBtxXeMeSCxogTx5fjafe5pdTSvqtxhvFHqz4JcfYecOmkeS5e7tm+T81rT5vaTyhR64aC4gaRHvU13I/mQ3NlQzkmWHvgYgyWIS2khfE6IOjBGLaFI4gHu3JquEiIE0WRvyUJ+rTgL8V57144bX7m+nWQgbI+vuedVSGVLBRzM1CzrkTyAd/NX6osLT9nt+nibZ15VEdqHXyIi9n3Rn0B6Ua/ym+P6PKPBdgLh9k/w=
-  - secure: xudyiiurFoRZhUc+AgbmbwogVHWjBQPAdqiXLIpvUMZuUFbh4yKTtfChJE2yG1uJYZTjrW2RbnISvRVmAYOFvGuCcP/lnyNjDbaA4Jg4wsvEFNwEMA6yBOeM/gcxoajOQoMA5+aZo/ofLcbnnIeHyWLg5fwpv2fqGlWOqbWU5AFlKBxU/wetNd89ec60Nhm5N0/HrBagy9/AkI4ZUVMrM5bhfuxVtdVt2lfVYI7aJxeKSiJpZV3dur0H7hOT9n/gkusmojqo+V0C6W7n0yuDM/vOnj4zL2Ugsgaa2GNNTXzeoLhQqGNKmLiKRhR4NIGEWoWov8uPWeiqgNbOx25ncN+h1lUAA3M6GbXGiZA89GWcNQ2U9hsi39fksJvq0yyDqr8fNVEKVDOZMkDGUVEfzudASdHlClerUWh0oDl//jqVBHsLjXLNif8AhCPrCSm8PF33SRwFVZdDCP2l61+0CJxM1I9G9aN80lJ2fw/U1dI5U9mwLUGJJieQfneU8qE/O57AZnyegL3cnKhTATIBbABS4vcZrz/z9O6jKn/Z3uh61vojnXhG3TVVzYg4y3disMsGC6f6PDR9ep8/kQ6/27q35Gqx5CSG9EMWaRAfrVencxISIFNDQwKJnLlQRJDuyUWoknzaaWHFokyVbtMiALjejHsGEZdvQ7s2gt4WXO8=
+    - SECRET_KEY=codeforpoznan
+    - secret: ""
+    - secure: cjCtdItb6hY/a9Lx4GdpjqMHjFWgKN5AVucKDNTTy/zIVy8cvX158W4zQbm94n9FhMsXgcUxA2h+pFEjfjFOH4PSmUXvEcIEpl+c3+Cb+y89830rg52I5hXz+Vk2MMU7LdFZ3FsgpGfLOIk7oaRrv00UxWsk1gnlq2HZLJjqQlIN9IdyIDPGmMarrU5PFLIII3Gz3Ld21/GCWPotp709Ers85DFLHHZlfogKIrpi5qsCbtXx99y50nYTEwyGfYN51ehPnFghP4HfA6c6hCokFFvA+3TpRxGUFd19oXQutDkp4YBtKRBZTII/gwCg1ZVnR8j1UjZwBE3xosaWJV7sgjnVTm2r3TNL1BUO/qCMvjbLOJZLtu1D4U321+gF5V+3qR8zeyjbo7wxIPIRWH9DWyNu8Cwem0rKPTt1nnPl5ieHVOAKf/jrT3jqNx6uI3ZceBtxXeMeSCxogTx5fjafe5pdTSvqtxhvFHqz4JcfYecOmkeS5e7tm+T81rT5vaTyhR64aC4gaRHvU13I/mQ3NlQzkmWHvgYgyWIS2khfE6IOjBGLaFI4gHu3JquEiIE0WRvyUJ+rTgL8V57144bX7m+nWQgbI+vuedVSGVLBRzM1CzrkTyAd/NX6osLT9nt+nibZ15VEdqHXyIi9n3Rn0B6Ua/ym+P6PKPBdgLh9k/w=
+    - secure: xudyiiurFoRZhUc+AgbmbwogVHWjBQPAdqiXLIpvUMZuUFbh4yKTtfChJE2yG1uJYZTjrW2RbnISvRVmAYOFvGuCcP/lnyNjDbaA4Jg4wsvEFNwEMA6yBOeM/gcxoajOQoMA5+aZo/ofLcbnnIeHyWLg5fwpv2fqGlWOqbWU5AFlKBxU/wetNd89ec60Nhm5N0/HrBagy9/AkI4ZUVMrM5bhfuxVtdVt2lfVYI7aJxeKSiJpZV3dur0H7hOT9n/gkusmojqo+V0C6W7n0yuDM/vOnj4zL2Ugsgaa2GNNTXzeoLhQqGNKmLiKRhR4NIGEWoWov8uPWeiqgNbOx25ncN+h1lUAA3M6GbXGiZA89GWcNQ2U9hsi39fksJvq0yyDqr8fNVEKVDOZMkDGUVEfzudASdHlClerUWh0oDl//jqVBHsLjXLNif8AhCPrCSm8PF33SRwFVZdDCP2l61+0CJxM1I9G9aN80lJ2fw/U1dI5U9mwLUGJJieQfneU8qE/O57AZnyegL3cnKhTATIBbABS4vcZrz/z9O6jKn/Z3uh61vojnXhG3TVVzYg4y3disMsGC6f6PDR9ep8/kQ6/27q35Gqx5CSG9EMWaRAfrVencxISIFNDQwKJnLlQRJDuyUWoknzaaWHFokyVbtMiALjejHsGEZdvQ7s2gt4WXO8=
+
+
+install:
+  - nvm install 10.13.0
+  - (cd frontend && yarn install)
+  - pip install -r backend/requirements.txt
+
+
+script:
+  - (cd frontend && yarn lint)        # lint frontend
+  - (cd backend  && pytest)           # test backend
+  - (cd backend  && black --check .)  # lint backend
+
+  deploy:
+    provider: script
+    script: bash deploy.sh
+    on:
+      branch: master
+      repo: jacekkalbarczyk/cfp_aws
+        
