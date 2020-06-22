@@ -21,10 +21,9 @@ script:
   - (cd backend  && pytest)           # test backend
   - (cd backend  && black --check .)  # lint backend
 
-  deploy:
-    provider: script
-    script: bash deploy.sh
-    on:
-      branch: master
-      repo: jacekkalbarczyk/cfp_aws
-        
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: master
+    repo: jacekkalbarczyk/cfp_aws
