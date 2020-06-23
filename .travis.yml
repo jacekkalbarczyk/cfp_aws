@@ -15,7 +15,9 @@ install:
   - (cd frontend && yarn install)
   - pip install -r backend/requirements.txt
   - pip install awscli
+  - yarn global add @vue/cli
 
+  
 script:
   - (cd frontend && yarn lint)        # lint frontend
   - (cd backend  && pytest)           # test backend
