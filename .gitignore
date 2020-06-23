@@ -2,6 +2,7 @@ node_modules/
 frontend/dist/
 
 yarn-error.log
+npm-debug.log
 
 __pycache__/
 .pytest_cache/
