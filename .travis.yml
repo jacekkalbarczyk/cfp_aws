@@ -23,6 +23,7 @@ script:
   - (cd frontend && yarn lint)        # lint frontend
   # - (cd backend  && pytest)           # test backend
   # - (cd backend  && black --check .)  # lint backend
+  - vue --version
 
 deploy:
   provider: script
