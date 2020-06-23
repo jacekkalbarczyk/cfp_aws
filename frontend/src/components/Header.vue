@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       items: [
-        { name: 'O nas', id: '#about' },
+        { name: 'O nassss', id: '#about' },
         { name: 'Nasze projekty', id: '#projects' },
         { name: 'Dołącz do nas', id: '#join' },
         { name: 'Kontakt', id: '#contact' }
