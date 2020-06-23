@@ -12,7 +12,7 @@ env:
 
 install:
   - nvm install 10.13.0
-  - (cd frontend && yarn install && npm ci      --quiet)
+  - (cd frontend && yarn install && npm install -g @vue/cli)
   - pip install -r backend/requirements.txt
   - pip install awscli
   # - (cd frontend && npm ci      --quiet)
